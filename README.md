@@ -13,9 +13,9 @@ Copy and paste the code to AppleScript content
     	set fileName to fileName & " " & get_time()
     	set fileName1X to savePath & "/" & fileName & "@1x." & fileType
     	set fileName2X to savePath & "/" & fileName & "@2x." & fileType
-    	
-    	do shell script "screencapture -i -r -t " & fileType & " \"" & fileName2X & "\""
-    	
+    	try
+    	    do shell script "screencapture -i -r -t " & fileType & " \"" & fileName2X & "\""
+    	end try
     	tell application "System Events"
     		if exists file fileName2X then
     			tell application "Image Events"
