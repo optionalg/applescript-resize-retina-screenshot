@@ -4,9 +4,9 @@ Make an Automator Service
 Copy and paste the code to AppleScript content 
 ```
 # the script written by ptcong90
-on run {input}
+on run {input}	
 	set savePath to "/Users/ptcong/Desktop"
-	set fileType to "png"
+	set fileType to (do shell script "defaults read com.apple.screencapture type")
 	set fileName to "Screen Shot"
 	set keepRetinaScreenShot to "NO"
 	set fileName to fileName & " " & get_time()
