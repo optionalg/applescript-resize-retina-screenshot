@@ -4,11 +4,11 @@ Make an Automator Service
 Copy and paste the code to AppleScript content 
 ```
 # the script written by ptcong90
-on run {input}	
-	set savePath to "/Users/ptcong/Desktop"
-	set fileType to (do shell script "defaults read com.apple.screencapture type")
-	set fileName to "Screen Shot"
+on run {input}
+	set fileName to "Screen Shot" 
 	set keepRetinaScreenShot to "NO"
+	set savePath to (POSIX path of (path to desktop folder))
+	set fileType to (do shell script "defaults read com.apple.screencapture type")
 	set fileName to fileName & " " & get_time()
 	set fileName1X to savePath & "/" & fileName & "@1x." & fileType
 	set fileName2X to savePath & "/" & fileName & "@2x." & fileType
@@ -57,9 +57,6 @@ Now you can use Cmd+Shift+5 to capture screenshot for non-retina solution.
 
 There are some configurations that you may change.
 
-`set savePath to "/Users/ptcong/Desktop"`, change "ptcong" to your account
-
-`set fileType to "png"` 
 
 `set fileName to "Screen Shot"`
 
